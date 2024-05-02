@@ -11,10 +11,5 @@
       "source": "/",
       "destination": "https://github.com/pdavenport"
     }
-  ],
-  "env": {
-    "SPOTIFY_CLIENT_ID": "@SPOTIFY_CLIENT_ID",
-    "SPOTIFY_REFRESH_TOKEN": "@SPOTIFY_REFRESH_TOKEN",
-    "SPOTIFY_SECRET_ID": "@SPOTIFY_SECRET_ID"
-  }
+  ]
 }
