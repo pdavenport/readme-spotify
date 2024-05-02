@@ -1,8 +1,20 @@
  {
+  "version": 1,
+  "builds": [
+    {
+      "src": "spotify.py",
+      "use": "@vercel/python"
+    }
+  ],
   "redirects": [
     {
       "source": "/",
-      "destination": "https://github.com/novatorem/novatorem"
+      "destination": "https://github.com/pdavenport"
     }
-  ]
+  ],
+  "env": {
+    "SPOTIFY_CLIENT_ID": "@spotify_client_id",
+    "SPOTIFY_REFRESH_TOKEN": "@spotify_refresh_token",
+    "SPOTIFY_SECRET_ID": "@spotify_secret_id"
+  }
 }

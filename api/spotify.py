@@ -167,12 +167,13 @@ def makeSVG(data, background_color, border_color):
 @app.route("/<path:path>")
 @app.route('/with_parameters')
 def catch_all(path):
-    background_color = request.args.get('background_color') or "181414"
-    border_color = request.args.get('border_color') or "181414"
+    background_color = request.args.get('background_color', "181414")
+    border_color = request.args.get('border_color', "181414")
 
     try:
         data = get(NOW_PLAYING_URL)
-    except Exception:
+    except Exception as e:
+        print(f"Error getting data from NOW_PLAYING_URL: {e}")
         data = get(RECENTLY_PLAYING_URL)
 
     svg = makeSVG(data, background_color, border_color)
@@ -184,4 +185,5 @@ def catch_all(path):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port=os.getenv("PORT") or 5000)
+    port = os.getenv("PORT", 5000)
+    app.run(host="0.0.0.0", port=port, debug=os.getenv("FLASK_DEBUG", False))
